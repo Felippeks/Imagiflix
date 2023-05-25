@@ -11,7 +11,7 @@ function App() {
 
   return (
     <>
-    <Hero score={10}/>
+    <Hero/>
     <Navbar/>
     <Carousel title='Filmes' data={movies}/>
     </>
