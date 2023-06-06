@@ -4,6 +4,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Movie } from "../interfaces/Movie";
 import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import Poster from "./Poster";
+import CONST from '../data/constants';
+// const Poster = ({ cover, title }: Movie, index: number) => (
+
+// );
 
 interface Direction {
   directionType: 'left' | 'rigth';
@@ -23,6 +27,8 @@ interface CarouselProps {
 }
 
 const Carousel = ({ title, data }: CarouselProps) => {
+  const { IMAGE_URL } = CONST;
+  
   const settings: Settings = {
     infinite: true,
     slidesToScroll: 1,
@@ -31,12 +37,26 @@ const Carousel = ({ title, data }: CarouselProps) => {
     nextArrow: <StickArrow directionType='rigth' />,
   };
 
+  const getCover = (cover?: string) => {
+    if(cover) {
+     return `${IMAGE_URL}/original${cover}`;
+    }
+
+    return '';
+  }
+
   return (
     <section className="carousel">
       <h2 className="relative z-10 font-bold text-2xl ml-8 mb-4">{title}</h2>
      
       <Slider className="relative mb-8" {...settings}>
-        {data?.map((movie, index) => <Poster title={movie.title} cover={movie.cover} key={index} />)}
+        {data?.map((movie, index) => <Poster 
+          title={movie.title} 
+          cover={getCover(movie?.poster_path )}
+          score={movie.vote_average}
+          name={movie.name}
+          key={index} 
+          />)}
       </Slider>
     </section>
   )

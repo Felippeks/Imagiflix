@@ -1,8 +1,18 @@
+.main, .image {
+  width: 200px;
+  height: 331px;
+}
+
+.image {
+  object-fit: cover;
+  object-position: center;
+}
+
 .carousel .slick-slider .slick-list .slick-slide:hover {
-    position: relative;
-    z-index: 10;
-  }
-  
-  .poster:hover {
-    opacity: 1;
-  }
+  position: relative;
+  z-index: 10;
+}
+
+.poster:hover {
+  opacity: 1;
+}

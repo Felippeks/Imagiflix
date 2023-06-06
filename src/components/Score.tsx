@@ -1,7 +1,7 @@
 import './Score.css';
 
 interface scoreProps {
-  value: number
+  value?: number
 }
 
 const Score = ({ value }: scoreProps) => {
@@ -13,7 +13,7 @@ const Score = ({ value }: scoreProps) => {
 
   return (
     <span
-      className={`score text-center text-white inline-block mx-2 py-2 px-3 border-4 bg-black bg-opacity-75 rounded-full ${getBorderColor()}`}
+      className={`score text-sm text-center text-white inline-block mx-2 py-2 px-3 border-4 bg-black bg-opacity-75 rounded-full ${getBorderColor()}`}
     >
       {value}
     </span>
